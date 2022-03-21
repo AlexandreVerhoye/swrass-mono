@@ -1,0 +1,28 @@
+{
+  "root": "apps/swrass-e2e",
+  "sourceRoot": "apps/swrass-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/swrass-e2e/cypress.json",
+        "devServerTarget": "swrass:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "swrass:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/swrass-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["swrass"]
+}
