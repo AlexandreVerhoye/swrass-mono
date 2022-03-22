@@ -5,12 +5,18 @@ import { search } from './app/app.controller';
 const app = express();
 
 //Route search
-app.get('/api/v1/search', async (req, res) => {
+app.get('/api/v1/test', async (req, res) => {
+  res.status(200).json({ status: 'la' });
+});
+
+app.get('/api/v1/search/:keywords', async (req, res) => {
   try {
-    const data: ISearchAll = await search('r2');
+    const keywords = req.params.keywords;
+    console.log(keywords);
+    const data: ISearchAll = await search(keywords);
     res.json(data);
   } catch (err) {
-    console.log(err.response.statusText);
+    console.log(err);
     res.status(500).send({ error: 'Something went wrong' });
   }
 });

@@ -4,7 +4,7 @@ import config from './config';
 
 const SwAPIClient = axios.create({
   baseURL: config.baseUrl,
-  timeout: 1000,
+  timeout: 10000,
 });
 
 export async function search(search: string) {

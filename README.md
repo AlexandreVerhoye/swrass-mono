@@ -21,3 +21,9 @@ Afin de cloner le projet il faut lancer la commande suivante :
 
 Il suffit ensuite d'installer les dependances :
 `cd swrass-mono && yarn install`
+
+Il y a plusieurs façon de lancer l'application :
+
+- Afin de démarrer le Front-End et le Back-End : `npx nx run-many --parallel --target=serve --projects=api,swrass`
+
+- Afin de démarrer le Front-End **OU** le Back-End : `npx nx serve api` ou `npx nx serve swrass`
