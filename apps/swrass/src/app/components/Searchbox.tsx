@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useForm } from 'react-hook-form';
 
 const SearchInput = styled.input`
   position: relative;
@@ -52,10 +53,25 @@ const FormContainer = styled.form`
   border-radius: var(--rad);
 `;
 
-const Searchbox: React.FC = () => {
+type FormData = {
+  keywords: string;
+  filters?: Array<string>;
+};
+
+type SearboxProps = {
+  callback: (keywords: string) => void;
+  hasFilterSelector?: boolean;
+};
+
+const Searchbox: React.FC<SearboxProps> = (props) => {
+  const { register, handleSubmit } = useForm<FormData>();
+
+  const onSubmit = handleSubmit((data) => props.callback(data.keywords));
+
   return (
-    <FormContainer role="search">
+    <FormContainer onSubmit={onSubmit} role="search">
       <SearchInput
+        {...register('keywords')}
         autoFocus
         id="search"
         type="search"

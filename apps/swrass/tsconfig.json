@@ -1,6 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["app/components/*"],
+      "@services/*": ["app/services/*"],
+      "@pages/*": ["app/pages/*"]
+    },
     "jsx": "react-jsx",
     "allowJs": true,
     "esModuleInterop": true,
