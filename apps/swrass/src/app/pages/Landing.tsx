@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import logoAllianceRebel from '../../assets/rebel_Alliance_logo_white.webp';
+import logoAllianceRebel from '@assets/rebel_Alliance_logo_white.webp';
 import Searchbox from '@components/Searchbox';
+import { useNavigate } from 'react-router-dom';
 
 const MainLayout = styled.div`
   display: flex;
@@ -26,9 +27,15 @@ const Image = styled.img`
 `;
 
 export const Landing: React.FC = () => {
-  useEffect(() => {
-    fetch('/api/v1/test').then((r) => console.log(r));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/v1/test').then((r) => console.log(r));
+  // }, []);
+
+  const navigate = useNavigate();
+
+  const handleSearch = (keywords: string) => {
+    navigate(`/search?q=${keywords}`);
+  };
 
   return (
     <MainLayout>
@@ -36,9 +43,7 @@ export const Landing: React.FC = () => {
         <Image src={logoAllianceRebel} />
         <h1>Star Wars Rebels Alliance Search System</h1>
       </TitleContainer>
-      <Searchbox
-        callback={(data: string) => console.log('Data from app.tsx' + data)}
-      />
+      <Searchbox callback={handleSearch} />
     </MainLayout>
   );
 };

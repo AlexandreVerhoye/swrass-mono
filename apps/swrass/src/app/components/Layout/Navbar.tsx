@@ -1,24 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
+import logoAllianceRebel from '@assets/rebel_Alliance_logo_white.webp';
 
 const NavbarContainer = styled.nav`
-  margin: auto;
   display: flex;
-  width: 80vw;
-  min-height: 3em;
+  justify-content: start;
   align-items: center;
-  justify-content: center;
+  padding: 1em 1.5em;
 `;
 
-const TextNavbar = styled.span`
-  font-size: 2em;
-  font-weight: 700;
+const NavbarItems = styled.span`
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+`;
+
+const NavbarLogo = styled.img`
+  height: 2em;
+  width: 2em;
 `;
 
 const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
-      <TextNavbar>SWRASS</TextNavbar>
+      <NavbarItems>
+        <NavbarLogo src={logoAllianceRebel} />
+        <span>Star Wars Rebels Alliance Search System</span>
+      </NavbarItems>
     </NavbarContainer>
   );
 };
