@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import logoAllianceRebel from '../assets/rebel_Alliance_logo_white.webp';
+import logoAllianceRebel from '../../assets/rebel_Alliance_logo_white.webp';
 import Searchbox from '@components/Searchbox';
 
 const MainLayout = styled.div`

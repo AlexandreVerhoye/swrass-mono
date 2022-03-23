@@ -12,7 +12,7 @@ Ce projet a été réalisé dans le cadre d'un test technique pour Fastory.io
 
 J'ai choisis d'utiliser un **monorepo** afin de pouvoir partager certaines partie du code au sein des deux projets, utilisant tout deux **NodeJS**. **Nx** permet egalement de créer un proxy entre le front et le back.
 
-Dans un soucis de delais, j'ai préféré utiliser une librairie UI (ChakraUI) afin de produire un MVP fonctionnel et visuellement agréable.
+Dans un soucis de delais, j'ai préféré utiliser styled-components afin de produire un MVP fonctionnel et visuellement agréable, tout en alliant la puissance du CSS-IN-JS.
 
 # Mise en place du projet
 
