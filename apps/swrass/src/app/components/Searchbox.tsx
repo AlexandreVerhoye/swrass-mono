@@ -16,10 +16,11 @@ const SearchInput = styled.input`
   border-radius: var(--rad);
   appearance: none;
   transition: all var(--dur) var(--bez);
-  transition-property: width, border-radius;
+  transition-property: width, border-radius, box-shadow;
   z-index: 1;
 
   &:not(:placeholder-shown) {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: var(--rad) 0 0 var(--rad);
     width: calc(100% - 6rem);
     + button {
@@ -29,9 +30,9 @@ const SearchInput = styled.input`
 
 const SearchButton = styled.button`
   height: 5rem;
-  font-family: var(--font-fam);
+  font-family: var(--font-family);
   border: 0;
-  color: var(--color-white);
+  color: var(--color-light);
   font-size: 1.8rem;
   display: none; // prevent being able to tab to it
   position: absolute;
@@ -41,6 +42,7 @@ const SearchButton = styled.button`
   font-weight: bold;
   background: var(--color-brand);
   border-radius: 0 var(--rad) var(--rad) 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
 const FormContainer = styled.form`
@@ -53,7 +55,13 @@ const FormContainer = styled.form`
 const Searchbox: React.FC = () => {
   return (
     <FormContainer role="search">
-      <SearchInput id="search" type="search" placeholder="Search..." required />
+      <SearchInput
+        autoFocus
+        id="search"
+        type="search"
+        placeholder="Search..."
+        required
+      />
       <SearchButton type="submit">GO</SearchButton>
     </FormContainer>
   );
