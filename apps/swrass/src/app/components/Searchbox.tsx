@@ -61,18 +61,22 @@ type FormData = {
 
 type SearboxProps = {
   callback: (keywords: string) => void;
-  value?: string;
+  value?: string | null;
   hasFilterSelector?: boolean;
 };
 
-const Searchbox: React.FC<SearboxProps> = (props) => {
+const Searchbox: React.FC<SearboxProps> = ({
+  callback,
+  value,
+  hasFilterSelector,
+}) => {
   const { register, handleSubmit, setValue } = useForm<FormData>();
 
   useEffect(() => {
-    if (props.value) setValue('keywords', props.value);
+    if (value) setValue('keywords', value);
   });
 
-  const onSubmit = handleSubmit((data) => props.callback(data.keywords));
+  const onSubmit = handleSubmit((data) => callback(data.keywords));
 
   return (
     <FormContainer onSubmit={onSubmit} role="search">

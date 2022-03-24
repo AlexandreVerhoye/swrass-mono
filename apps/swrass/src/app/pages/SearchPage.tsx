@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { useQueryParams } from 'app/hooks/useQueryParams';
 import Layout from '@components/Layout';
 import Searchbox from '@components/Searchbox';
+import { useSearchParams } from 'react-router-dom';
 
-const SearchPage: React.FC = (props) => {
-  const query = useQueryParams();
-  const [keywords, setKeywords] = useState<string | null>();
-
-  const handleSearch = (keywords: string) => {
-    // navigate(`/search?q=${keywords}`);
-  };
+const SearchPage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState<string | null>(null);
 
   useEffect(() => {
-    const queryKeywords = query.get('q');
-    setKeywords(queryKeywords);
-    console.log(keywords);
-  }, []);
+    setQuery(searchParams.get('q'));
+  }, [searchParams]);
+
+  const handleSearch = (keywords: string) => {
+    setSearchParams({ q: keywords });
+  };
 
   return (
     <Layout>
-      <Searchbox callback={(value) => handleSearch(value)} value="test" />
+      <Searchbox callback={(value) => handleSearch(value)} value={query} />
     </Layout>
   );
 };
