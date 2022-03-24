@@ -3,10 +3,10 @@
 
 :root {
   --rad: 0.7rem;
-  --dur: 0.3s;
-  --color-dark: #2f2f2f;
+  --dur: 0.2s;
+  --color-dark: #1a202c;
   --color-light: #fff;
-  --color-brand: #a5332e;
+  --color-brand: #4074ad;
   --font-family: 'M PLUS 1', sans-serif;
   --font-family-terminal: 'Source Code Pro', monospace;
   --bez: cubic-bezier(0, 0, 0.43, 1.49);

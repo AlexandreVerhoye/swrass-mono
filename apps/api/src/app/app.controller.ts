@@ -93,7 +93,12 @@ export async function search(search: string): Promise<ISearchAll> {
     count++;
   });
 
-  return { data: finalArray, count: count };
+  return {
+    data: finalArray.sort((a, b) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    ),
+    count: count,
+  };
 }
 
 /**
