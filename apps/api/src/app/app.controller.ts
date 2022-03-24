@@ -9,6 +9,8 @@ import {
   ISwAPIResponse,
   IVehicles,
 } from '@swrass-mono/api-interfaces';
+
+import { swapiUrlDeconstructor } from '@swrass-mono/utils';
 import axios from 'axios';
 import config from './config';
 
@@ -43,7 +45,7 @@ export async function search(search: string): Promise<ISearchAll> {
     finalArray.push({
       name: item.name,
       type: dataType.PEOPLE,
-      id: urlDeconstructor(item.url),
+      id: swapiUrlDeconstructor(item.url),
     });
     count++;
   });
@@ -52,7 +54,7 @@ export async function search(search: string): Promise<ISearchAll> {
     finalArray.push({
       name: item.title,
       type: dataType.FILMS,
-      id: urlDeconstructor(item.url),
+      id: swapiUrlDeconstructor(item.url),
     });
     count++;
   });
@@ -61,7 +63,7 @@ export async function search(search: string): Promise<ISearchAll> {
     finalArray.push({
       name: item.name,
       type: dataType.PLANETS,
-      id: urlDeconstructor(item.url),
+      id: swapiUrlDeconstructor(item.url),
     });
     count++;
   });
@@ -70,7 +72,7 @@ export async function search(search: string): Promise<ISearchAll> {
     finalArray.push({
       name: item.name,
       type: dataType.SPECIES,
-      id: urlDeconstructor(item.url),
+      id: swapiUrlDeconstructor(item.url),
     });
     count++;
   });
@@ -79,7 +81,7 @@ export async function search(search: string): Promise<ISearchAll> {
     finalArray.push({
       name: item.name,
       type: dataType.STARSHIPS,
-      id: urlDeconstructor(item.url),
+      id: swapiUrlDeconstructor(item.url),
     });
     count++;
   });
@@ -88,7 +90,7 @@ export async function search(search: string): Promise<ISearchAll> {
     finalArray.push({
       name: item.name,
       type: dataType.VEHICLES,
-      id: urlDeconstructor(item.url),
+      id: swapiUrlDeconstructor(item.url),
     });
     count++;
   });
@@ -100,16 +102,6 @@ export async function search(search: string): Promise<ISearchAll> {
     count: count,
   };
 }
-
-/**
- * Get item's ID from SWAPI URL (not an unique ID as it is linked to a dataType)
- * @param url Item URL on SWAPI database
- * @returns
- */
-const urlDeconstructor = (url: string): number => {
-  const res = url.slice(0, -1).split('/').pop();
-  return parseInt(res);
-};
 
 /* --------------------------------------------------*/
 

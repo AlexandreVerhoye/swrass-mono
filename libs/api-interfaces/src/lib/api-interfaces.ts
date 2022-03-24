@@ -16,6 +16,11 @@ export enum dataType {
   VEHICLES = 'vehicles',
 }
 
+export interface RessourceLink {
+  title: string;
+  url: string;
+}
+
 export interface ISearchResult {
   name: string;
   type: dataType;

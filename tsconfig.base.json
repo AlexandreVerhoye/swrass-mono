@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@swrass-mono/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@swrass-mono/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@swrass-mono/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

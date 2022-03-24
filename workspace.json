@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
+    "utils": "libs/utils",
     "swrass": "apps/swrass",
     "swrass-e2e": "apps/swrass-e2e"
   }

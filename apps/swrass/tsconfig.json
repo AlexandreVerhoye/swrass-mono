@@ -8,7 +8,8 @@
       "@pages/*": ["./src/app/pages/*"],
       "@assets/*": ["./src/assets/*"],
       "@utils/*": ["./src/app/utils/*"],
-      "@swrass-mono/api-interfaces": ["../../libs/api-interfaces/src/index.ts"]
+      "@swrass-mono/api-interfaces": ["../../libs/api-interfaces/src/index.ts"],
+      "@swrass-mono/utils": ["../../libs/utils/src/index.ts"]
     },
     "jsx": "react-jsx",
     "allowJs": true,
