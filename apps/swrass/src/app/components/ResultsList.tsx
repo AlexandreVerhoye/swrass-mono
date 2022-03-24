@@ -11,7 +11,7 @@ const ResultsListContainer = styled.div`
 const ResultsItemsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
   grid-column-gap: 15px;
   grid-row-gap: 15px;
 `;

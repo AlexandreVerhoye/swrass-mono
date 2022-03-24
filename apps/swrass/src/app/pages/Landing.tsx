@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logoAllianceRebel from '@assets/rebel_Alliance_logo_white.webp';
 import Searchbox from '@components/Searchbox';
 import { useNavigate } from 'react-router-dom';
+import SEO from '@components/SEO';
 
 const MainLayout = styled.div`
   display: flex;
@@ -38,13 +39,16 @@ export const Landing: React.FC = () => {
   };
 
   return (
-    <MainLayout>
-      <TitleContainer>
-        <Image src={logoAllianceRebel} />
-        <h1>Star Wars Rebels Alliance Search System</h1>
-      </TitleContainer>
-      <Searchbox callback={handleSearch} />
-    </MainLayout>
+    <>
+      <SEO title="Home" />
+      <MainLayout>
+        <TitleContainer>
+          <Image src={logoAllianceRebel} />
+          <h1>Star Wars Rebels Alliance Search System</h1>
+        </TitleContainer>
+        <Searchbox callback={handleSearch} />
+      </MainLayout>
+    </>
   );
 };
 

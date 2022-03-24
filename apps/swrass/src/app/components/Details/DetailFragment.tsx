@@ -10,6 +10,7 @@ import {
 } from '@swrass-mono/api-interfaces';
 import styled from 'styled-components';
 import DataItem from './DataItem';
+import SEO from '@components/SEO';
 
 const Container = styled.div`
   display: flex;
@@ -47,15 +48,18 @@ type PeopleProps = {
 
 export const People: React.FC<PeopleProps> = ({ data }) => {
   return (
-    <Container>
-      <Header>
-        <DataType>{dataType.PEOPLE}</DataType>
-        <Name>{data.name}</Name>
-      </Header>
-      <DataContainer>
-        <DataItem dataName="Birth date">{data.birth_year}</DataItem>
-      </DataContainer>
-    </Container>
+    <>
+      <SEO title={data.name} />
+      <Container>
+        <Header>
+          <DataType>{dataType.PEOPLE}</DataType>
+          <Name>{data.name}</Name>
+        </Header>
+        <DataContainer>
+          <DataItem dataName="Birth date">{data.birth_year}</DataItem>
+        </DataContainer>
+      </Container>
+    </>
   );
 };
 
@@ -67,15 +71,18 @@ type VehiclesProps = {
 
 export const Vehicles: React.FC<VehiclesProps> = ({ data }) => {
   return (
-    <Container>
-      <Header>
-        <DataType>{dataType.VEHICLES}</DataType>
-        <Name>{data.name}</Name>
-      </Header>
-      <DataContainer>
-        <DataItem dataName="Pilot">{data.pilots}</DataItem>
-      </DataContainer>
-    </Container>
+    <>
+      <SEO title={data.name} />
+      <Container>
+        <Header>
+          <DataType>{dataType.VEHICLES}</DataType>
+          <Name>{data.name}</Name>
+        </Header>
+        <DataContainer>
+          <DataItem dataName="Pilot">{data.pilots}</DataItem>
+        </DataContainer>
+      </Container>
+    </>
   );
 };
 
@@ -87,15 +94,18 @@ type FilmsProps = {
 
 export const Films: React.FC<FilmsProps> = ({ data }) => {
   return (
-    <Container>
-      <Header>
-        <DataType>{dataType.FILMS}</DataType>
-        <Name>{data.title}</Name>
-      </Header>
-      <DataContainer>
-        <DataItem dataName="Release date">{data.release_date}</DataItem>
-      </DataContainer>
-    </Container>
+    <>
+      <SEO title={data.title} />
+      <Container>
+        <Header>
+          <DataType>{dataType.FILMS}</DataType>
+          <Name>{data.title}</Name>
+        </Header>
+        <DataContainer>
+          <DataItem dataName="Release date">{data.release_date}</DataItem>
+        </DataContainer>
+      </Container>
+    </>
   );
 };
 
@@ -107,15 +117,18 @@ type SpeciesProps = {
 
 export const Species: React.FC<SpeciesProps> = ({ data }) => {
   return (
-    <Container>
-      <Header>
-        <DataType>{dataType.SPECIES}</DataType>
-        <Name>{data.name}</Name>
-      </Header>
-      <DataContainer>
-        <DataItem dataName="People">{data.people}</DataItem>
-      </DataContainer>
-    </Container>
+    <>
+      <SEO title={data.name} />
+      <Container>
+        <Header>
+          <DataType>{dataType.SPECIES}</DataType>
+          <Name>{data.name}</Name>
+        </Header>
+        <DataContainer>
+          <DataItem dataName="People">{data.people}</DataItem>
+        </DataContainer>
+      </Container>
+    </>
   );
 };
 
@@ -127,15 +140,18 @@ type PlanetsProps = {
 
 export const Planets: React.FC<PlanetsProps> = ({ data }) => {
   return (
-    <Container>
-      <Header>
-        <DataType>{dataType.PLANETS}</DataType>
-        <Name>{data.name}</Name>
-      </Header>
-      <DataContainer>
-        <DataItem dataName="Population">{data.population}</DataItem>
-      </DataContainer>
-    </Container>
+    <>
+      <SEO title={data.name} />
+      <Container>
+        <Header>
+          <DataType>{dataType.PLANETS}</DataType>
+          <Name>{data.name}</Name>
+        </Header>
+        <DataContainer>
+          <DataItem dataName="Population">{data.population}</DataItem>
+        </DataContainer>
+      </Container>
+    </>
   );
 };
 
@@ -147,14 +163,17 @@ type StarshipsProps = {
 
 export const Starships: React.FC<StarshipsProps> = ({ data }) => {
   return (
-    <Container>
-      <Header>
-        <DataType>{dataType.PLANETS}</DataType>
-        <Name>{data.name}</Name>
-      </Header>
-      <DataContainer>
-        <DataItem dataName="Model">{data.model}</DataItem>
-      </DataContainer>
-    </Container>
+    <>
+      <SEO title={data.name} />
+      <Container>
+        <Header>
+          <DataType>{dataType.PLANETS}</DataType>
+          <Name>{data.name}</Name>
+        </Header>
+        <DataContainer>
+          <DataItem dataName="Model">{data.model}</DataItem>
+        </DataContainer>
+      </Container>
+    </>
   );
 };

@@ -23,6 +23,7 @@ import {
   Starships,
   Vehicles,
 } from '@components/Details/DetailFragment';
+import SEO from '@components/SEO';
 
 const Container = styled.div`
   align-items: stretch;

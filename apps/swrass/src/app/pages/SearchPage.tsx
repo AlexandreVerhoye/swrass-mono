@@ -8,6 +8,7 @@ import Loading from '@components/Loading';
 import Error from '@components/Error';
 import ResultsList from '@components/ResultsList';
 import styled from 'styled-components';
+import SEO from '@components/SEO';
 
 const Container = styled.div`
   align-items: stretch;
@@ -36,18 +37,21 @@ const SearchPage: React.FC = () => {
   };
 
   return (
-    <Layout>
-      <Searchbox callback={(value) => handleSearch(value)} value={query} />
-      <Container>
-        {isValidating && (
-          <LoadingContainer>
-            <Loading />
-          </LoadingContainer>
-        )}
-        {error && <Error />}
-        {data && <ResultsList searchResults={data} />}
-      </Container>
-    </Layout>
+    <>
+      {query && <SEO title={query} />}
+      <Layout>
+        <Searchbox callback={(value) => handleSearch(value)} value={query} />
+        <Container>
+          {isValidating && (
+            <LoadingContainer>
+              <Loading />
+            </LoadingContainer>
+          )}
+          {error && <Error />}
+          {data && <ResultsList searchResults={data} />}
+        </Container>
+      </Layout>
+    </>
   );
 };
 
