@@ -1,4 +1,14 @@
-import { ISwAPIResponse } from '@swrass-mono/api-interfaces';
+import {
+  dataType,
+  IFilms,
+  IPeople,
+  IPlanets,
+  ISearchAll,
+  ISpecies,
+  IStarships,
+  ISwAPIResponse,
+  IVehicles,
+} from '@swrass-mono/api-interfaces';
 import axios from 'axios';
 import config from './config';
 
@@ -7,23 +17,94 @@ const SwAPIClient = axios.create({
   timeout: 10000,
 });
 
-export async function search(search: string) {
-  const people = (await searchPeople(search)).data;
-  const films = (await searchFilms(search)).data;
-  const planets = (await searchPlanets(search)).data;
-  const species = (await searchSpecies(search)).data;
-  const starships = (await searchStarships(search)).data;
-  const vehicles = (await searchVehicles(search)).data;
+/**
+ * Search an item in the SWAPI database
+ * @param search Keywords to search on SWAPI
+ * @returns Results from search on SWAPI
+ */
+export async function search(search: string): Promise<ISearchAll> {
+  const people = (await searchPeople(search)).data.results;
+  console.log('People fetched');
+  const films = (await searchFilms(search)).data.results;
+  console.log('Films fetched');
+  const planets = (await searchPlanets(search)).data.results;
+  console.log('planets fetched');
+  const species = (await searchSpecies(search)).data.results;
+  console.log('Species fetched');
+  const starships = (await searchStarships(search)).data.results;
+  console.log('Starships fetched');
+  const vehicles = (await searchVehicles(search)).data.results;
+  console.log('Vehicles fetched');
 
-  return {
-    people: people,
-    films: films,
-    planets: planets,
-    species: species,
-    starships: starships,
-    vehicles: vehicles,
-  };
+  const finalArray = [];
+  let count = 0;
+
+  people.forEach((item: IPeople) => {
+    finalArray.push({
+      name: item.name,
+      type: dataType.PEOPLE,
+      id: urlDeconstructor(item.url),
+    });
+    count++;
+  });
+
+  films.forEach((item: IFilms) => {
+    finalArray.push({
+      name: item.title,
+      type: dataType.FILMS,
+      id: urlDeconstructor(item.url),
+    });
+    count++;
+  });
+
+  planets.forEach((item: IPlanets) => {
+    finalArray.push({
+      name: item.name,
+      type: dataType.PLANETS,
+      id: urlDeconstructor(item.url),
+    });
+    count++;
+  });
+
+  species.forEach((item: ISpecies) => {
+    finalArray.push({
+      name: item.name,
+      type: dataType.SPECIES,
+      id: urlDeconstructor(item.url),
+    });
+    count++;
+  });
+
+  starships.forEach((item: IStarships) => {
+    finalArray.push({
+      name: item.name,
+      type: dataType.STARSHIPS,
+      id: urlDeconstructor(item.url),
+    });
+    count++;
+  });
+
+  vehicles.forEach((item: IVehicles) => {
+    finalArray.push({
+      name: item.name,
+      type: dataType.VEHICLES,
+      id: urlDeconstructor(item.url),
+    });
+    count++;
+  });
+
+  return { data: finalArray, count: count };
 }
+
+/**
+ * Get item's ID from SWAPI URL (not an unique ID as it is linked to a dataType)
+ * @param url Item URL on SWAPI database
+ * @returns
+ */
+const urlDeconstructor = (url: string): number => {
+  const res = url.slice(0, -1).split('/').pop();
+  return parseInt(res);
+};
 
 async function searchPeople(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('people/', {

@@ -2,20 +2,34 @@ export interface ISwAPIResponse {
   count: number;
   next: null;
   previous: null;
-  results: Array<IPeople | IFilm | IPlanet | ISpecie | IStarship | IVehicle>;
+  results: Array<
+    IPeople | IFilms | IPlanets | ISpecies | IStarships | IVehicles
+  >;
+}
+
+export enum dataType {
+  PEOPLE = 'people',
+  FILMS = 'films',
+  PLANETS = 'planets',
+  SPECIES = 'species',
+  STARSHIPS = 'starships',
+  VEHICLES = 'vehicles',
+}
+
+export interface ISearchResult {
+  name: string;
+  type: dataType;
+  id: number;
 }
 
 export interface ISearchAll {
-  people: ISwAPIResponse;
-  films: ISwAPIResponse;
-  planets: ISwAPIResponse;
-  species: ISwAPIResponse;
-  starships: ISwAPIResponse;
-  vehicles: ISwAPIResponse;
+  data: Array<ISearchResult>;
+  count: number;
 }
 
 export interface IPeople {
   birth_year: string;
+  type?: dataType.PEOPLE;
   eye_color: string;
   films: Array<string>;
   gender: string;
@@ -33,8 +47,9 @@ export interface IPeople {
   vehicles: Array<string>;
 }
 
-export interface IFilm {
+export interface IFilms {
   title: string;
+  type?: dataType.FILMS;
   episode_id: number;
   characters: Array<string>;
   created: string;
@@ -50,8 +65,9 @@ export interface IFilm {
   vehicles: Array<string>;
 }
 
-export interface IPlanet {
+export interface IPlanets {
   name: string;
+  type?: dataType.PLANETS;
   climate: string;
   created: string;
   diameter: string;
@@ -67,8 +83,9 @@ export interface IPlanet {
   url: string;
 }
 
-export interface ISpecie {
+export interface ISpecies {
   average_height: string;
+  type?: dataType.SPECIES;
   average_lifespan: string;
   classification: string;
   created: string;
@@ -85,8 +102,9 @@ export interface ISpecie {
   url: string;
 }
 
-export interface IStarship {
+export interface IStarships {
   MGLT: string;
+  type?: dataType.STARSHIPS;
   cargo_capacity: string;
   consumables: string;
   cost_in_credits: string;
@@ -106,8 +124,9 @@ export interface IStarship {
   url: string;
 }
 
-export interface IVehicle {
+export interface IVehicles {
   cargo_capacity: string;
+  type?: dataType.VEHICLES;
   consumables: string;
   cost_in_credits: string;
   created: string;
