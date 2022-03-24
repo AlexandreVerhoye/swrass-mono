@@ -111,7 +111,14 @@ const urlDeconstructor = (url: string): number => {
   return parseInt(res);
 };
 
-async function searchPeople(keywords: string) {
+/* --------------------------------------------------*/
+
+/**
+ * Search people in SWAPI
+ * @param keywords keywords to search
+ * @return Promise<ISwAPIResponse>
+ */
+export async function searchPeople(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('people/', {
     params: {
       search: keywords,
@@ -119,7 +126,23 @@ async function searchPeople(keywords: string) {
   });
 }
 
-async function searchFilms(keywords: string) {
+/**
+ * Retrieve a people from SWAPI
+ * @param id id of ressource
+ * @return Promise<IPeople>
+ */
+export async function getPeople(id: number) {
+  return SwAPIClient.get<IPeople>(`people/${id}`);
+}
+
+/* --------------------------------------------------*/
+
+/**
+ * Search films in SWAPI
+ * @param keywords keywords to search
+ * @return Promise<ISwAPIResponse>
+ */
+export async function searchFilms(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('films/', {
     params: {
       search: keywords,
@@ -127,7 +150,23 @@ async function searchFilms(keywords: string) {
   });
 }
 
-async function searchPlanets(keywords: string) {
+/**
+ * Retrieve a film from SWAPI
+ * @param id id of ressource
+ * @return Promise<IFilms>
+ */
+export async function getFilms(id: number) {
+  return SwAPIClient.get<IFilms>(`films/${id}`);
+}
+
+/* --------------------------------------------------*/
+
+/**
+ * Search planets in SWAPI
+ * @param keywords keywords to search
+ * @return Promise<ISwAPIResponse>
+ */
+export async function searchPlanets(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('planets/', {
     params: {
       search: keywords,
@@ -135,7 +174,23 @@ async function searchPlanets(keywords: string) {
   });
 }
 
-async function searchSpecies(keywords: string) {
+/**
+ * Retrieve a planet from SWAPI
+ * @param id id of ressource
+ * @return Promise<IPlanets>
+ */
+export async function getPlanets(id: number) {
+  return SwAPIClient.get<IPlanets>(`planets/${id}`);
+}
+
+/* --------------------------------------------------*/
+
+/**
+ * Search species in SWAPI
+ * @param keywords keywords to search
+ * @returns Promise<ISwAPIResponse>
+ */
+export async function searchSpecies(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('species/', {
     params: {
       search: keywords,
@@ -143,7 +198,23 @@ async function searchSpecies(keywords: string) {
   });
 }
 
-async function searchStarships(keywords: string) {
+/**
+ * Retrieve a specie from SWAPI
+ * @param id id of ressource
+ * @return Promise<ISpecies>
+ */
+export async function getSpecies(id: number) {
+  return SwAPIClient.get<ISpecies>(`species/${id}`);
+}
+
+/* --------------------------------------------------*/
+
+/**
+ * Search starships in SWAPI
+ * @param keywords keywords to search
+ * @returns Promise<ISwAPIResponse>
+ */
+export async function searchStarships(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('starships/', {
     params: {
       search: keywords,
@@ -151,10 +222,35 @@ async function searchStarships(keywords: string) {
   });
 }
 
-async function searchVehicles(keywords: string) {
+/**
+ * Retrieve a starships from SWAPI
+ * @param id id of ressource
+ * @return Promise<IStarships>
+ */
+export async function getStarships(id: number) {
+  return SwAPIClient.get<IStarships>(`starships/${id}`);
+}
+
+/* --------------------------------------------------*/
+
+/**
+ * Search vehicles in SWAPI
+ * @param keywords keywords to search
+ * @returns Promise<ISwAPIResponse>
+ */
+export async function searchVehicles(keywords: string) {
   return SwAPIClient.get<ISwAPIResponse>('vehicles/', {
     params: {
       search: keywords,
     },
   });
+}
+
+/**
+ * Retrieve a vehicle from SWAPI
+ * @param id id of ressource
+ * @return Promise<IVehicle>
+ */
+export async function getVehicles(id: number) {
+  return SwAPIClient.get<IVehicles>(`vehicles/${id}`);
 }

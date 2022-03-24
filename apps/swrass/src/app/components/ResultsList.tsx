@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ISearchAll } from '@swrass-mono/api-interfaces';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ResultsListContainer = styled.div`
   display: flex;
@@ -14,7 +15,8 @@ const ResultsItemsGrid = styled.div`
   grid-column-gap: 15px;
   grid-row-gap: 15px;
 `;
-const ResultItemContainer = styled.div`
+
+const ResultItemContainer = styled(Link)`
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -58,7 +60,7 @@ const ResultsList: React.FC<ResultsListProps> = ({ searchResults }) => {
       <Counter>{searchResults.count} results</Counter>
       <ResultsItemsGrid>
         {searchResults.data.map((result, key) => (
-          <ResultItemContainer key={key}>
+          <ResultItemContainer to={`/${result.type}/${result.id}`} key={key}>
             <ResultItemDataType>{result.type}</ResultItemDataType>
             <ResultItemName>{result.name}</ResultItemName>
           </ResultItemContainer>

@@ -1,6 +1,15 @@
-import { ISearchAll } from '@swrass-mono/api-interfaces';
+import { dataType, ISearchAll } from '@swrass-mono/api-interfaces';
+import { error } from 'console';
 import * as express from 'express';
-import { search } from './app/app.controller';
+import {
+  search,
+  getFilms,
+  getPeople,
+  getPlanets,
+  getSpecies,
+  getStarships,
+  getVehicles,
+} from './app/app.controller';
 
 const app = express();
 
@@ -11,10 +20,42 @@ app.get('/api/v1/test', async (req, res) => {
 
 app.get('/api/v1/search/:keywords', async (req, res) => {
   try {
-    const keywords = req.params.keywords;
-    console.log(keywords);
+    const keywords: string = req.params.keywords;
     const data: ISearchAll = await search(keywords);
     res.json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({ error: 'Something went wrong' });
+  }
+});
+
+app.get('/api/v1/:type/:id', async (req, res) => {
+  try {
+    const type: string = req.params.type;
+    const id: number = parseInt(req.params.id);
+
+    switch (type) {
+      case dataType.PEOPLE:
+        res.json((await getPeople(id)).data);
+        break;
+      case dataType.VEHICLES:
+        res.json((await getVehicles(id)).data);
+        break;
+      case dataType.FILMS:
+        res.json((await getFilms(id)).data);
+        break;
+      case dataType.SPECIES:
+        res.json((await getSpecies(id)).data);
+        break;
+      case dataType.PLANETS:
+        res.json((await getPlanets(id)).data);
+        break;
+      case dataType.STARSHIPS:
+        res.json((await getStarships(id)).data);
+        break;
+      default:
+        throw new error();
+    }
   } catch (err) {
     console.log(err);
     res.status(500).send({ error: 'Something went wrong' });
