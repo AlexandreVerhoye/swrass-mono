@@ -30,6 +30,7 @@ const SearchInput = styled.input`
     width: calc(100% - 6rem);
     + button {
       display: block;
+    }
   }
 `;
 
@@ -56,43 +57,43 @@ const FormContainer = styled.form`
 `;
 
 const FilterSelectorContainer = styled.div`
-  position: relative
-    display: block
-    max-width: 400px
-    min-width: 180px
-    margin: 0 auto
-    border: 1px solid #3C1C78
-    background-color: #16013E
-    z-index: 10
+  position: relative;
+  display: block;
+  max-width: 400px;
+  min-width: 180px;
+  margin: 0 auto;
+  border: 1px solid #3c1c78;
+  background-color: #16013e;
+  z-index: 10;
 
   &:select {
-    border: none
-    outline: none
-    background: transparent
-    -webkit-appearance: none
-    -moz-appearance: none
-    appearance: none
-    border-radius: 0
-    margin: 0
-    display: block
-    width: 100%
-    padding: 12px 55px 15px 15px
-    font-size: 14px
-    color: #714BB9
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 12px 55px 15px 15px;
+    font-size: 14px;
+    color: #714bb9;
 
     &:after {
-      position: absolute
-      right: 0
-      top: 0
-      width: 50px
-      height: 100%
-      line-height: 38px
-      content: '\2228'
-      text-align: center
-      color: #714BB9
-      font-size: 24px
-      border-left: 1px solid #3C1C78
-      z-index: -1
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      line-height: 38px;
+      content: '\2228';
+      text-align: center;
+      color: #714bb9;
+      font-size: 24px;
+      border-left: 1px solid #3c1c78;
+      z-index: -1;
     }
   }
 `;
@@ -134,6 +135,7 @@ const Searchbox: React.FC<SearboxProps> = ({
           type="search"
           placeholder="Search..."
           required
+          autoComplete="off"
         />
         <SearchButton type="submit">GO</SearchButton>
       </FormContainer>

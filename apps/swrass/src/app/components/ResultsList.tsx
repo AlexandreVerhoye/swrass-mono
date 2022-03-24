@@ -23,7 +23,7 @@ const ResultItemContainer = styled(Link)`
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5em;
-  background-color: var(--color-light);
+  background-color: var(--color-card);
   color: var(--color-dark);
   padding: 2em;
   transition: all var(--dur);
@@ -35,7 +35,7 @@ const ResultItemContainer = styled(Link)`
 `;
 
 const ResultItemDataType = styled.span`
-  text-transform: capitalize;
+  text-transform: uppercase;
 `;
 
 const ResultItemName = styled.span`
