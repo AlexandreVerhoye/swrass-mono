@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logoAllianceRebel from '@assets/rebel_Alliance_logo_white.webp';
+import { Link } from 'react-router-dom';
 
 const NavbarContainer = styled.nav`
   display: flex;
@@ -25,7 +26,9 @@ const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
       <NavbarItems>
-        <NavbarLogo src={logoAllianceRebel} />
+        <Link to="/">
+          <NavbarLogo src={logoAllianceRebel} />
+        </Link>
         <span>Star Wars Rebels Alliance Search System</span>
       </NavbarItems>
     </NavbarContainer>

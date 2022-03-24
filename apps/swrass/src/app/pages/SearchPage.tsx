@@ -7,6 +7,17 @@ import fetcher from '@utils/fetcher';
 import Loading from '@components/Loading';
 import Error from '@components/Error';
 import ResultsList from '@components/ResultsList';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  align-items: stretch;
+`;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+`;
 
 const SearchPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -27,9 +38,15 @@ const SearchPage: React.FC = () => {
   return (
     <Layout>
       <Searchbox callback={(value) => handleSearch(value)} value={query} />
-      {isValidating && <Loading />}
-      {error && <Error />}
-      {data && <ResultsList searchResults={data} />}
+      <Container>
+        {isValidating && (
+          <LoadingContainer>
+            <Loading />
+          </LoadingContainer>
+        )}
+        {error && <Error />}
+        {data && <ResultsList searchResults={data} />}
+      </Container>
     </Layout>
   );
 };
