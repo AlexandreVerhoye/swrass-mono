@@ -20,6 +20,10 @@ Afin de m'organiser au mieux, j'ai utilisé un tableau Asana avec lequel j'ai re
 é
 Par exemple, je n'ai pas eu le temps d'implémenter des tests avec Jest, aussi bien sur l'API que le Front-End. Je n'ai également pas eu le temps d'ajouter le module d'authentification sur l'API ainsi que sur React.
 
+J'ai également été obligé de negliger certains aspect de la securité (ce qu'il y a de plus important finalement) coté API et Searchbox...
+
+Coté UI, j'aurais aimé faire quelque chose de beaucoup plus propre, j'ai souhaité m'inspirer d'un `terminal` d'ordinateur disponible dans une station par exemple
+
 Certaines informations connecté a SWAPI sont également manquante sur chaque page de details, étant donné que les ressources lié a un type de donnée contiennent une URL redirigeant directement vers SWAPI. Je souhaitais faire le traitement de ces données directement dans l'API, en remplaçant ces tableau d'URL SWAPI avec un tableau de type RessourceLink (avec un title et une URL adapté pour notre Back-End) afin de pouvoir récuperer directement ces valeurs sur le Front et n'avoir qu'a les afficher avec leur titre et un lien redirigeant sur sa page dedié.
 
 Malgré le peu de temps que j'ai eu pour réaliser ce test, j'espere avoir produit un MVP fonctionnel et suffisament complet.
