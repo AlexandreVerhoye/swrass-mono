@@ -16,7 +16,7 @@ import config from './config';
 
 const SwAPIClient = axios.create({
   baseURL: config.apiUrl,
-  timeout: 100000,
+  timeout: 10000,
 });
 
 /**
