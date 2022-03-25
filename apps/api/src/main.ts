@@ -18,6 +18,7 @@ app.get('/api/v1/test', async (req, res) => {
   res.status(200).json({ status: 'la' });
 });
 
+// Search route
 app.get('/api/v1/search/:keywords', async (req, res) => {
   try {
     const keywords: string = req.params.keywords;
@@ -29,6 +30,7 @@ app.get('/api/v1/search/:keywords', async (req, res) => {
   }
 });
 
+// Retrieve a specific item of specific type
 app.get('/api/v1/:type/:id', async (req, res) => {
   try {
     const type: string = req.params.type;

@@ -17,8 +17,12 @@ Dans un soucis de delais, j'ai préféré utiliser styled-components afin de pro
 ## Contraintes lié au delais
 
 Afin de m'organiser au mieux, j'ai utilisé un tableau Asana avec lequel j'ai rempli mes differents objectifs. Par manque de temps, certaines fonctionnalités (optionnel) sont manquantes, et d'autres plus simplifié, afin de créer un **MVP** bel et bien fonctionnel.
-
+é
 Par exemple, je n'ai pas eu le temps d'implémenter des tests avec Jest, aussi bien sur l'API que le Front-End. Je n'ai également pas eu le temps d'ajouter le module d'authentification sur l'API ainsi que sur React.
+
+Certaines informations connecté a SWAPI sont également manquante sur chaque page de details, étant donné que les ressources lié a un type de donnée contiennent une URL redirigeant directement vers SWAPI. Je souhaitais faire le traitement de ces données directement dans l'API, en remplaçant ces tableau d'URL SWAPI avec un tableau de type RessourceLink (avec un title et une URL adapté pour notre Back-End) afin de pouvoir récuperer directement ces valeurs sur le Front et n'avoir qu'a les afficher avec leur titre et un lien redirigeant sur sa page dedié.
+
+Malgré le peu de temps que j'ai eu pour réaliser ce test, j'espere avoir produit un MVP fonctionnel et suffisament complet.
 
 # Mise en place du projet
 

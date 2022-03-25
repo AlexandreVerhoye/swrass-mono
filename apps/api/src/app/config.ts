@@ -1,5 +1,5 @@
 const config = {
-  baseUrl: 'https://swapi.dev/api',
+  apiUrl: 'https://swapi.dev/api',
 };
 
 export default config;

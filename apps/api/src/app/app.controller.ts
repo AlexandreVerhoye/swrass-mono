@@ -11,12 +11,12 @@ import {
 } from '@swrass-mono/api-interfaces';
 
 import { swapiUrlDeconstructor } from '@swrass-mono/utils';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import config from './config';
 
 const SwAPIClient = axios.create({
-  baseURL: config.baseUrl,
-  timeout: 10000,
+  baseURL: config.apiUrl,
+  timeout: 100000,
 });
 
 /**
@@ -123,7 +123,7 @@ export async function searchPeople(keywords: string) {
  * @param id id of ressource
  * @return Promise<IPeople>
  */
-export async function getPeople(id: number) {
+export async function getPeople(id: number): Promise<AxiosResponse<IPeople>> {
   return SwAPIClient.get<IPeople>(`people/${id}`);
 }
 
@@ -134,7 +134,9 @@ export async function getPeople(id: number) {
  * @param keywords keywords to search
  * @return Promise<ISwAPIResponse>
  */
-export async function searchFilms(keywords: string) {
+export async function searchFilms(
+  keywords: string
+): Promise<AxiosResponse<ISwAPIResponse>> {
   return SwAPIClient.get<ISwAPIResponse>('films/', {
     params: {
       search: keywords,
@@ -147,7 +149,7 @@ export async function searchFilms(keywords: string) {
  * @param id id of ressource
  * @return Promise<IFilms>
  */
-export async function getFilms(id: number) {
+export async function getFilms(id: number): Promise<AxiosResponse<IFilms>> {
   return SwAPIClient.get<IFilms>(`films/${id}`);
 }
 
@@ -158,7 +160,9 @@ export async function getFilms(id: number) {
  * @param keywords keywords to search
  * @return Promise<ISwAPIResponse>
  */
-export async function searchPlanets(keywords: string) {
+export async function searchPlanets(
+  keywords: string
+): Promise<AxiosResponse<ISwAPIResponse>> {
   return SwAPIClient.get<ISwAPIResponse>('planets/', {
     params: {
       search: keywords,
@@ -171,7 +175,7 @@ export async function searchPlanets(keywords: string) {
  * @param id id of ressource
  * @return Promise<IPlanets>
  */
-export async function getPlanets(id: number) {
+export async function getPlanets(id: number): Promise<AxiosResponse<IPlanets>> {
   return SwAPIClient.get<IPlanets>(`planets/${id}`);
 }
 
@@ -182,7 +186,9 @@ export async function getPlanets(id: number) {
  * @param keywords keywords to search
  * @returns Promise<ISwAPIResponse>
  */
-export async function searchSpecies(keywords: string) {
+export async function searchSpecies(
+  keywords: string
+): Promise<AxiosResponse<ISwAPIResponse>> {
   return SwAPIClient.get<ISwAPIResponse>('species/', {
     params: {
       search: keywords,
@@ -195,7 +201,7 @@ export async function searchSpecies(keywords: string) {
  * @param id id of ressource
  * @return Promise<ISpecies>
  */
-export async function getSpecies(id: number) {
+export async function getSpecies(id: number): Promise<AxiosResponse<ISpecies>> {
   return SwAPIClient.get<ISpecies>(`species/${id}`);
 }
 
@@ -206,7 +212,9 @@ export async function getSpecies(id: number) {
  * @param keywords keywords to search
  * @returns Promise<ISwAPIResponse>
  */
-export async function searchStarships(keywords: string) {
+export async function searchStarships(
+  keywords: string
+): Promise<AxiosResponse<ISwAPIResponse>> {
   return SwAPIClient.get<ISwAPIResponse>('starships/', {
     params: {
       search: keywords,
@@ -219,7 +227,9 @@ export async function searchStarships(keywords: string) {
  * @param id id of ressource
  * @return Promise<IStarships>
  */
-export async function getStarships(id: number) {
+export async function getStarships(
+  id: number
+): Promise<AxiosResponse<IStarships>> {
   return SwAPIClient.get<IStarships>(`starships/${id}`);
 }
 
@@ -230,7 +240,9 @@ export async function getStarships(id: number) {
  * @param keywords keywords to search
  * @returns Promise<ISwAPIResponse>
  */
-export async function searchVehicles(keywords: string) {
+export async function searchVehicles(
+  keywords: string
+): Promise<AxiosResponse<ISwAPIResponse>> {
   return SwAPIClient.get<ISwAPIResponse>('vehicles/', {
     params: {
       search: keywords,
@@ -243,6 +255,8 @@ export async function searchVehicles(keywords: string) {
  * @param id id of ressource
  * @return Promise<IVehicle>
  */
-export async function getVehicles(id: number) {
+export async function getVehicles(
+  id: number
+): Promise<AxiosResponse<IVehicles>> {
   return SwAPIClient.get<IVehicles>(`vehicles/${id}`);
 }
